@@ -1,0 +1,7 @@
+dist
+spec
+node_modules
+Dockerfile
+docker-compose.yml
+package-lock.json
+yarn.lock
