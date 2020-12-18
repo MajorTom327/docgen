@@ -1,5 +1,9 @@
-import ITemplate from '@entities/Template'
+import Template, { ITemplate } from '@entities/Template'
 
 export default interface ITemplateDao {
-  getAll: () => Promise<ITemplate | null>
+  save: (template: ITemplate | typeof Template) => Promise<ITemplate>,
+  getOne: (id: string) => Promise<ITemplate | null>,
+  getAll: () => Promise<ITemplate[] | null>,
+  update: (id: string, template: ITemplate) => Promise<ITemplate>,
+  remove: (id: string) => Promise<null>,
 }

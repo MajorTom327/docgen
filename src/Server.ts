@@ -10,6 +10,8 @@ import 'express-async-errors';
 import BaseRouter from './routes';
 import logger from '@shared/Logger';
 
+import '@shared/mongoose'
+
 const app = express();
 const { BAD_REQUEST } = StatusCodes;
 
@@ -39,7 +41,7 @@ app.use('/api', BaseRouter);
 // Print API errors
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
-  logger.err(err, true);
+  logger.error(err.message);
   return res.status(BAD_REQUEST).json({
     error: err.message,
   });
