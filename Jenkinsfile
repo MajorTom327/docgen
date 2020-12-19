@@ -1,5 +1,4 @@
-node {
-  def docgenImage
+pipeline {
   environment {
     registry = "majortom327/docgen"
     registryCredential = 'dockerhub'
@@ -18,8 +17,8 @@ node {
       steps {
         script {
           docker.withRegistry( '', registryCredential ) {
-            docgenImage.push("${env.BUILD_NUMBER}")
-            docgenImage.push("latest")
+            dockerImage.push("${env.BUILD_NUMBER}")
+            dockerImage.push("latest")
           }
         }
       }
