@@ -1,4 +1,4 @@
-pipeline {
+node {
   def docgenImage
   environment {
     registry = "majortom327/docgen"
