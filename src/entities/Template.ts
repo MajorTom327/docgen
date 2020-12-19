@@ -7,7 +7,8 @@ export interface ITemplate extends Document {
 
 const TemplateSchema: Schema = new Schema({
   html: { type: String, required: true },
-  css: { type: String }
+  css: { type: String },
+  name: { type: String, required: true }
 }, { versionKey: false })
 
 export default mongoose.model<ITemplate>('template', TemplateSchema);

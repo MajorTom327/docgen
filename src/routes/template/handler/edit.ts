@@ -14,22 +14,6 @@ const create = async (req: Request, res: Response) => {
   TemplateDao.update(id, bodyTemp)
     .then((data) => { res.json(data) })
     .catch(() => { res.status(StatusCodes.BAD_REQUEST).json({}) })
-
-  // TemplateDao.getOne(id)
-  //   .then((template) => {
-  //     const d = new Template(template);
-
-  //     TemplateDao.save(d)
-  //       .then((data) => { res.json(data) })
-
-  //   }).catch((err) => {
-  //     return res.status(StatusCodes.NOT_FOUND).json(err)
-  //   })
-
-
-  // if (R.isNil(template))
-  //   return res.status(StatusCodes.BAD_REQUEST).json({})
-  // res.json(template);
 }
 
 export default create
