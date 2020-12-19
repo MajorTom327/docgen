@@ -1,0 +1,244 @@
+{
+	"info": {
+		"_postman_id": "65325c9c-d211-4657-a07d-7f46ac7be2aa",
+		"name": "DocGen",
+		"description": "Generate PDF Through the basic api service.\nUse somes templating with EJS syntax",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "template",
+			"item": [
+				{
+					"name": "Create Template",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"html\": \"<h1>Hello <%= title %></h1>\",\n    \"css\": \".body { padding: 4px; }\",\n    \"name\": \"basic_template\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/template",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"template"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get templates",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/api/template",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"template"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get templates from id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/api/template/:id",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"template",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "5fdcf9a32cd476028615554f"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Template",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"html\": \"<h1>Hello <%= title %></h1>\",\n    \"css\": \"body { padding: 4px; color: #ff00ff; }\",\n    \"name\": \"basic_template\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/template/:id",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"template",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "5fde003c34a8d6001d4184fa"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Template Template",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/api/template/:id",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"template",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "5fdd0296f32dcf070f640931"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "render",
+			"item": [
+				{
+					"name": "render template from name",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Friend\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/render/name/:name",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"render",
+								"name",
+								":name"
+							],
+							"variable": [
+								{
+									"key": "name",
+									"value": "basic_template"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "render template from id",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Friend\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/render/:id",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"render",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "5fde003c34a8d6001d4184fa"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "host",
+			"value": "http://localhost:3000"
+		}
+	]
+}
