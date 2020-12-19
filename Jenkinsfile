@@ -8,16 +8,23 @@ pipeline {
   stages {
     stage('Build image') {
       steps {
-        sh 'docker build -t docgen .'
+        docker.build registry + ":$BUILD_NUMBER"
       }
     }
 
     stage('Publish image') {
       steps {
-        sh '''#docker tag docgen:latest majortom327/docgen:latest
-#docker push majortom327/docgen:latest'''
+        script {
+          docker.withRegistry( '', registryCredential ) {
+            dockerImage.push()
+          }
+        }
       }
     }
-
+    stage('cleanup docker image') {
+      steps{
+        sh "docker rmi $registry:$BUILD_NUMBER"
+      }
+    }
   }
 }
