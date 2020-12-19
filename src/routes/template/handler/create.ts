@@ -5,7 +5,7 @@ import { ITemplate } from '@entities/Template';
 
 const R = require('ramda');
 
-const create = async (req: Request, res: Response) => {
+const create = (req: Request, res: Response) => {
   const bodyTemp: ITemplate = req.body;
   //Todo: Add ajv validation to ensure data are right
 

@@ -12,11 +12,14 @@ const save = (template: ITemplate | typeof Template): Promise<ITemplate> => {
 
 const getOne = (id: string): Promise<ITemplate | null> => {
   return Template.findById(id).exec();
-
 }
 
-const getAll = (): Promise<ITemplate[] | null> => {
-  return Template.find({}).exec();
+const getOneFrom = (filter: Record<string, unknown>): Promise<ITemplate | null> => {
+  return Template.findOne(filter).exec();
+}
+
+const getAll = (filter?: Record<string, unknown>): Promise<ITemplate[] | null> => {
+  return Template.find(R.defaultTo({}, filter)).exec();
 }
 
 const update = (id: string, template: ITemplate): Promise<ITemplate> => {
@@ -61,6 +64,7 @@ const remove = (id: string): Promise<null> => {
 
 const dao: ITemplateDao = {
   getOne,
+  getOneFrom,
   getAll,
   save,
   remove,
