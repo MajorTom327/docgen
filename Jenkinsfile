@@ -2,7 +2,7 @@ pipeline {
 
   environment {
     registry = "majortom327/docgen"
-    registryCredential = ‘dockerhub’
+    registryCredential = 'dockerhub'
   }
   agent any
   stages {
