@@ -1,5 +1,6 @@
 export { default as createHandler } from './create'
 export { default as getAllHandler } from './getAll'
 export { default as getOneHandler } from './getOne'
+export { default as getOneFromNameHandler } from './getOneFromName'
 export { default as editHandler } from './edit'
 export { default as deleteHandler } from './delete'
