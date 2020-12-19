@@ -4,13 +4,12 @@ ARG NPM_TOKEN
 
 # Base installation
 WORKDIR /service
-COPY . .
+COPY .package.json .
 
 # Dependencies installation
-RUN echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" >> .npmrc \
-    && yarn install \
-    && rm .npmrc
+RUN  yarn install
 
+COPY . .
 # Build
 RUN yarn build
 

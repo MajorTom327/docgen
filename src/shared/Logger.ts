@@ -50,6 +50,7 @@ if (process.env.NODE_ENV === 'production') {
   const consoleTransport = new Console({
     format: format.combine(
       format.colorize(),
+      format.splat(),
       format.simple(),
       errorStackFormat()
     ),

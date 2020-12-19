@@ -8,3 +8,16 @@ services:
     image: mongo
     ports:
       - '27017:27017'
+  docgen:
+    build:
+      context: .
+      args:
+          NPM_TOKEN: $NPM_TOKEN
+    ports:
+        - 3000:3000
+    restart: always
+    environment:
+        PORT: 3000
+        HOST: 0.0.0.0
+        MONGO_URL: mongodb://mongo:27017/cats
+        GOT

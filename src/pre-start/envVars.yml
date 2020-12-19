@@ -1,0 +1,6 @@
+required:
+  NODE_ENV: development
+  PORT: Port to bind the app
+  HOST: Host to bind the app
+  MONGO_URL: Url to connect mongo
+  GOTENBERG_URL: Url of the gotenberg service
