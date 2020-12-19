@@ -4,7 +4,7 @@ import { fromId, fromName } from './handler';
 
 const router = Router();
 
-router.post('/:id', fromId);
 router.post('/name/:name', fromName);
+router.post('/:id', fromId);
 
 export default router;

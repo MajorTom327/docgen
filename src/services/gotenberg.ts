@@ -1,4 +1,12 @@
-import { pipe, gotenberg, convert, html, please } from 'gotenberg-js-client'
+import {
+  pipe,
+  gotenberg,
+  convert,
+  html,
+  please,
+  to,
+  a4
+} from 'gotenberg-js-client'
 
 const R = require('ramda');
 
@@ -6,7 +14,14 @@ const converter = pipe(
   gotenberg(R.pathOr('http://localhost:3000', ['env', 'GOTEBERG_URL'], process)),
   convert,
   html,
-  please
+  to(
+    {
+      paper: [8.27, 11.69], // * A4 format
+      margins: [0, 0, 0, 0],
+      landscape: false
+    }
+  ),
+  please,
 )
 
 export default converter;

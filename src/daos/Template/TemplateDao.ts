@@ -27,21 +27,16 @@ const update = (id: string, template: ITemplate): Promise<ITemplate> => {
     Template.findById(id).exec()
       .then((t) => {
         if (R.isNil(t)) {
-          logger.debug('Cannot find t');
+          logger.debug('Cannot find template');
           return reject(null)
         }
         const t2 = new Template(template);
         t2.isNew = false;
         t2._id = id
+        // * Save
         t2.save()
-          .then((d: ITemplate) => {
-            logger.debug('update resolve', d);
-            resolve(d)
-          })
-          .catch((err: any) => {
-            logger.error('Cannot upate', err)
-            reject(err)
-          })
+          .then(resolve)
+          .catch(reject)
       }).catch((err) => {
         logger.error('Cannot find', err)
         reject(err)

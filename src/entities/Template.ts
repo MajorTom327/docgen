@@ -3,6 +3,7 @@ import mongoose, { Schema, Document } from 'mongoose'
 export interface ITemplate extends Document {
   html: string
   css: string
+  name: string
 }
 
 const TemplateSchema: Schema = new Schema({
