@@ -20,9 +20,11 @@ const fromId = (req: Request, res: Response) => {
       // * Render pdf from service
       const pdf = await converter(renderedHtml);
       res.setHeader('content-type', 'application/pdf');
+      res.setHeader('content-transfer-encoding', 'base64')
+      res.setHeader('content-disposition', 'attachment')
       pdf.pipe(res);
     })
-    .catch((err) => {
+    .catch((err: any) => {
       res.status(StatusCodes.NOT_FOUND).json({});
     })
 }
