@@ -14,7 +14,7 @@ import childProcess from 'child_process';
 (async () => {
   try {
     // Remove current build
-    await remove('./dist/');
+    // await remove('./dist/');
     // Copy production env file
     await copy('./src/pre-start/env/production.env', './dist/pre-start/env/production.env');
     await copy('./src/pre-start/envVars.yml', './dist/pre-start/envVars.yml');

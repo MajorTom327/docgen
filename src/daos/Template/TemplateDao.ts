@@ -25,7 +25,7 @@ const getAll = (filter?: Record<string, unknown>): Promise<ITemplate[] | null> =
 const update = (id: string, template: ITemplate): Promise<ITemplate> => {
   return new Promise((resolve, reject) => {
     Template.findById(id).exec()
-      .then((t) => {
+      .then((t: ITemplate | null) => {
         if (R.isNil(t)) {
           logger.debug('Cannot find template');
           return reject(null)
@@ -37,7 +37,7 @@ const update = (id: string, template: ITemplate): Promise<ITemplate> => {
         t2.save()
           .then(resolve)
           .catch(reject)
-      }).catch((err) => {
+      }).catch((err: any) => {
         logger.error('Cannot find', err)
         reject(err)
       });

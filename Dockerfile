@@ -15,6 +15,7 @@ ENV MONGO_URL=mongodb://mongo:27017/docgen
 ENV GOTENBERG_URL=http://gotenberg:3000
 
 # Build
+
 RUN yarn build
 
 EXPOSE 3000
