@@ -9,8 +9,9 @@ services:
 
 variables:
   DOCKER_TLS_CERTDIR: "/certs"
-  CONTAINER_TEST_IMAGE: $CI_PROJECT_NAME:$CI_COMMIT_REF_SLUG | tr '[:upper:]' '[:lower:]
-  CONTAINER_RELEASE_IMAGE: $CI_PROJECT_NAME:latest | tr '[:upper:]' '[:lower:]
+  PROJECT_NAME: docgen
+  CONTAINER_TEST_IMAGE: $PROJECT_NAME:$CI_COMMIT_REF_SLUG
+  CONTAINER_RELEASE_IMAGE: $PROJECT_NAME:latest
 
 before_script:
   - docker login -u majortom327 -p $DOCKER_TOKEN
