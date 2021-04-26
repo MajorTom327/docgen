@@ -15,6 +15,7 @@ variables:
 
 before_script:
   - docker login -u majortom327 -p $DOCKER_TOKEN
+  - docker pull $PROJECT_NAME
 
 build-image:
   stage: build
