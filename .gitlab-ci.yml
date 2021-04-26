@@ -9,7 +9,7 @@ services:
 
 variables:
   DOCKER_TLS_CERTDIR: "/certs"
-  PROJECT_NAME: docgen
+  PROJECT_NAME: majortom327/docgen
   CONTAINER_TEST_IMAGE: $PROJECT_NAME:$CI_COMMIT_REF_SLUG
   CONTAINER_RELEASE_IMAGE: $PROJECT_NAME:latest
 
